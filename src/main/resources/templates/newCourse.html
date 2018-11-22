@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Nyt Kursus</title>
+
+    <link type="text/css" rel="stylesheet" href="../stylesheet.css"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form class="createForm" action="/newCourse" method="get">
+            <div>
+                <label for="courseDansih">Kursusnavn Dansk</label>
+                <input id="courseDansih" placeholder="Kursusnavn Dansk..."/>
+            </div>
+            <div>
+                <label for="courseEnglish">Kursusnavn Engelsk</label>
+                <input id="courseEnglish" placeholder="Kursusnavn Engelsk..."/>
+            </div>
+            <div>
+                <label for="semester">Semester</label>
+                <input id="semester" placeholder="Semester..."/>
+            </div>
+            <div>
+                <label for="classCode">Klassekode</label>
+                <input id="classCode" placeholder="Klassekode..."/>
+            </div>
+            <div>
+                <label for="studyProgram">Studieprogram</label>
+                <input id="studyProgram" placeholder="Studieprogram..."/>
+            </div>
+            <div>
+                <label for="mandatoryElective">Obligatorisk eller valgfrit</label>
+                <select id="mandatoryElective">
+                    <option>Obligatorisk</option>
+                    <option>Valgfrit</option>
+                </select>
+            </div>
+            <div>
+                <label for="ects">ECTS</label>
+                <input id="ects" placeholder="ECTS..."/>
+            </div>
+            <div>
+                <label for="language">Sprog</label>
+                <input id="language" placeholder="Sprog..."/>
+            </div>
+            <div>
+                <label for="minNumbStudents">Mindste antal studerende</label>
+                <input id="minNumbStudents" placeholder="Mindste antal studerende..."/>
+            </div>
+            <div>
+                <label for="expNumbStudents">Forventet antal studerende</label>
+                <input id="expNumbStudents" placeholder="Forventet antal studerende..."/>
+            </div>
+            <div>
+                <label for="maxNumbStudents">Højeste antal studerende</label>
+                <input id="maxNumbStudents" placeholder="Højeste antal studerende..."/>
+            </div>
+            <div>
+                <label for="prerequisites">Forudsætninger</label>
+                <input id="prerequisites" placeholder="Forudsætninger..."/>
+            </div>
+            <div>
+                <label for="learningOutcome">Læringsudbytte</label>
+                <input id="learningOutcome" placeholder="Læringsudbytte..."/>
+            </div>
+            <div>
+                <label for="content">Kursus indhold</label>
+                <input id="content" placeholder="Indhold..."/>
+            </div>
+            <div>
+                <label for="learningActivities">Læringsaktiviteter</label>
+                <input id="learningActivities" placeholder="Læringsaktiviteter..."/>
+            </div>
+            <div>
+                <label for="examForm">Eksamensform</label>
+                <input id="examForm" placeholder="Eksamensform..."/>
+            </div>
+            <div class="teacherSelect">
+                <label for="teachers">Vælg Underviser(e)</label>
+                <select id="teachers" name="teachers" multiple="multiple">
+                    <option
+                            th:each="teacher : ${teachers}"
+                            th:value="${teacher.teacherId}"
+                            th:text="${teacher.firstname + ' ' + teacher.lastname}"
+                    ></option>
+                </select>
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger backbtn">Tilbage</button>
+                <button type="button" class="btn btn-success createCoursebtn">Opret Kursus</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
+</html>
