@@ -14,7 +14,7 @@ Create new couse style
     float: right;
 }
 
-.teacherSelect{
+.teacherSelect, .studyProgram{
     height: 108px;
 }
 

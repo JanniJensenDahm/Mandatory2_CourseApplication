@@ -1,6 +1,10 @@
 package com.example.demo.model;
 
+import org.apache.catalina.User;
+
 import javax.persistence.*;
+import java.util.List;
+
 /**
  * Author Janni Jensen-Dahm
  * Date 17. nov. 2018
@@ -9,34 +13,46 @@ import javax.persistence.*;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "course_id")
     private Long id;
+    @Column(name = "name_danish")
     private String nameDanish;
+    @Column(name = "name_english")
     private String nameEnglish;
     private int semester;
+    @Column(name = "class_code")
     private String classCode;
+    @Column(name = "study_program")
     private String studyProgram;
+    @Column(name = "mandatory_elective")
     private boolean mandatoryOrElective;
+    @Column(name = "ects_point")
     private int ectsPoints;
-    private  String courseLanguage;
+    @Column(name = "course_language")
+    private String courseLanguage;
+    @Column(name = "min_numb_students")
     private int minimumStudents;
+    @Column(name = "exp_numb_students")
     private int expectedStudents;
+    @Column(name = "max_numb_students")
     private int maximumStudents;
     private String prerequisites;
+    @Column(name = "learning_outcome")
     private String learningOutcome;
     private String content;
+    @Column(name = "learning_activities")
     private String learningActivities;
+    @Column(name = "exam_form")
     private String examForm;
 
-    public Course() {}
+    @ManyToMany
+    private List<Teacher> teachers;
 
-    public Course(String nameDanish, String nameEnglish,
-                  int semester, String classCode,
-                  String studyProgram, boolean mandatoryOrElective,
-                  int ectsPoints, String courseLanguage,
-                  int minimumStudents, int expectedStudents,
-                  int maximumStudents, String prerequisites,
-                  String learningOutcome, String content,
-                  String learningActivities, String examForm) {
+
+    public Course() {
+    }
+
+    public Course(String nameDanish, String nameEnglish, int semester, String classCode, String studyProgram, boolean mandatoryOrElective, int ectsPoints, String courseLanguage, int minimumStudents, int expectedStudents, int maximumStudents, String prerequisites, String learningOutcome, String content, String learningActivities, String examForm, List<Teacher> teachers) {
         this.nameDanish = nameDanish;
         this.nameEnglish = nameEnglish;
         this.semester = semester;
@@ -53,6 +69,7 @@ public class Course {
         this.content = content;
         this.learningActivities = learningActivities;
         this.examForm = examForm;
+        this.teachers = teachers;
     }
 
     public Long getId() {
@@ -189,5 +206,13 @@ public class Course {
 
     public void setExamForm(String examForm) {
         this.examForm = examForm;
+    }
+
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 }
