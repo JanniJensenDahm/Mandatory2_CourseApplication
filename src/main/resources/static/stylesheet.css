@@ -21,3 +21,65 @@ Create new couse style
 .createCoursebtn{
     float: right;
 }
+
+.createNewCourseModel{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 2%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.createNewCourseContent{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid gray;
+    width: 40%;
+}
+
+.close{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.createDiv{
+    height: 58px;
+}
+
+/*
+Course list
+ */
+
+.newCoursebtn{
+    float: right;
+}
+
+.coursListHead th{
+    color: white;
+}
+
+.courseInfo:hover{
+    background-color: lightgray;
+}
+
+.createColumn{
+    width: 120px;
+}
+
+/*
+Div
+ */
+
+.row{
+    padding-top: 2%;
+}
+
