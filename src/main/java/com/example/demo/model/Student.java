@@ -10,30 +10,27 @@ import javax.persistence.*;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "student_id")
-    private Long studentId;
+    private Long id;
     private String firstname;
     private String lastname;
-    private String username;
-    private String password;
+    @OneToOne
+    private Session session;
 
     public Student() {
     }
 
-    public Student(Long studentId, String firstname, String lastname, String username, String password) {
-        this.studentId = studentId;
+    public Student(String firstname, String lastname, Session session) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.username = username;
-        this.password = password;
+        this.session = session;
     }
 
-    public Long getStudentId() {
-        return studentId;
+    public Long getId() {
+        return id;
     }
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstname() {
@@ -52,19 +49,11 @@ public class Student {
         this.lastname = lastname;
     }
 
-    public String getUsername() {
-        return username;
+    public Session getSession() {
+        return session;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSession(Session session) {
+        this.session = session;
     }
 }

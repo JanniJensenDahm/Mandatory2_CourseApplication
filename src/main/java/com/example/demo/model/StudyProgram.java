@@ -10,9 +10,7 @@ import javax.persistence.*;
 public class StudyProgram {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "study_program_id")
-    private Long studyProgramId;
-    @Column(name = "study_program")
+    private Long id;
     private String studyProgram;
 
     public StudyProgram() {
@@ -22,12 +20,12 @@ public class StudyProgram {
         this.studyProgram = studyProgram;
     }
 
-    public Long getStudyProgramId() {
-        return studyProgramId;
+    public Long getId() {
+        return id;
     }
 
-    public void setStudyProgramId(Long studyProgramId) {
-        this.studyProgramId = studyProgramId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getStudyProgram() {

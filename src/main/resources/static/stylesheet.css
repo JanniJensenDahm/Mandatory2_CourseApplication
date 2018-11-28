@@ -1,28 +1,37 @@
-/*
-Create new couse style
-*/
-.createForm{
+.loginBox{
+    max-width: 500px;
+    margin: auto;
+    margin-top: 20%;
+}
+
+.createForm,
+.showForm{
     max-width: 500px;
     margin: auto;
 }
 
-.createForm div{
+.createForm div,
+.showForm div{
     padding: 10px;
 }
 
-.createForm input, select{
+.createForm input, select,
+.showForm input, select{
     float: right;
 }
 
-.teacherSelect, .studyProgram{
+.teacherSelect{
     height: 108px;
 }
 
-.createCoursebtn{
+.createCoursebtn,
+.saveCoursebtn,
+.createTeacherbtn{
     float: right;
 }
 
-.createNewCourseModel{
+.createNewCourseModel,
+.createNewTeacherModel{
     display: none;
     position: fixed;
     z-index: 1;
@@ -36,7 +45,8 @@ Create new couse style
     background-color: rgba(0,0,0,0.4);
 }
 
-.createNewCourseContent{
+.createNewCourseContent,
+.createNewTeacherContent{
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -55,15 +65,14 @@ Create new couse style
     height: 58px;
 }
 
-/*
-Course list
- */
-
-.newCoursebtn{
+.newCoursebtn,
+.newTacherbtn{
     float: right;
 }
 
-.coursListHead th{
+.courseListHead,
+.loginHead,
+.teacherListHead{
     color: white;
 }
 
@@ -75,11 +84,11 @@ Course list
     width: 120px;
 }
 
-/*
-Div
- */
-
 .row{
     padding-top: 2%;
+}
+
+.navbar a{
+    float: left;
 }
 

@@ -1,99 +1,96 @@
-<div id="showCourse" th:frgment="showCourse" xmlns:th="http://www.thymeleaf.org">
-    <div class="showCourseContent">
+<div id="newCourse" th:fragment="newCourse" xmlns:th="http://www.thymeleaf.org">
+    <div class="createNewCourseContent">
         <span class="close">&times;</span>
-        <form class="showForm" method="post">
+        <form class="createForm" method="post" action="/teacher/newCourse">
             <div>
                 <label for="nameDanish">Kursusnavn Dansk</label>
-                <input id="nameDanish" th:field="${course.nameDanish}" placeholder="Kursusnavn Dansk..."/>
+                <input id="nameDanish" th:field="${course.nameDanish}" placeholder="Kursusnavn Dansk..." required="true"/>
             </div>
             <div>
                 <label for="nameEnglish">Kursusnavn Engelsk</label>
-                <input id="nameEnglish" th:field="${course.nameEnglish}" placeholder="Kursusnavn Engelsk..."/>
+                <input id="nameEnglish" th:field="${course.nameEnglish}" placeholder="Kursusnavn Engelsk..." required="true"/>
             </div>
             <div>
                 <label for="semester">Semester</label>
-                <input id="semester" th:field="${course.semester}" placeholder="Semester..."/>
+                <input id="semester" th:field="${course.semester}" placeholder="Semester..." required="true"/>
             </div>
             <div>
                 <label for="classCode">Klassekode</label>
-                <input id="classCode" th:field="${course.classCode}" placeholder="Klassekode..."/>
+                <input id="classCode" th:field="${course.classCode}" placeholder="Klassekode..." required="true"/>
             </div>
             <div class="studyProgram">
                 <label for="studyProgram">Vælg Studieprogram</label>
-                <select id="studyProgram" th:field="${course.studyProgram}" multiple="multiple">
+                <select id="studyProgram" th:field="${course.studyProgram}" required="true">
                     <option
                             th:each="studyProgram : ${studyPrograms}"
-                            th:value="${studyProgram.studyProgramId}"
+                            th:value="${studyProgram.id}"
                             th:text="${studyProgram.studyProgram}"></option>
                 </select>
             </div>
             <div>
                 <label for="mandatoryElective">Obligatorisk eller valgfrit</label>
-                <select id="mandatoryElective" th:field="${course.mandatoryOrElective}">
+                <select id="mandatoryElective" th:field="${course.mandatoryOrElective}" required="true">
                     <option th:value="true">Obligatorisk</option>
                     <option th:value="false">Valgfrit</option>
                 </select>
             </div>
             <div>
                 <label for="ects">ECTS</label>
-                <input id="ects" th:field="${course.ectsPoints}" placeholder="ECTS..."/>
+                <input id="ects" th:field="${course.ectsPoints}" placeholder="ECTS..." required="true"/>
             </div>
             <div>
                 <label for="language">Sprog</label>
-                <input id="language" th:field="${course.courseLanguage}" placeholder="Sprog..."/>
+                <input id="language" th:field="${course.courseLanguage}" placeholder="Sprog..." required="true"/>
             </div>
             <div>
                 <label for="minNumbStudents">Mindste antal studerende</label>
                 <input id="minNumbStudents" th:field="${course.minimumStudents}"
-                       placeholder="Mindste antal studerende..."/>
+                       placeholder="Mindste antal studerende..." required="true"/>
             </div>
             <div>
                 <label for="expNumbStudents">Forventet antal studerende</label>
                 <input id="expNumbStudents" th:field="${course.expectedStudents}"
-                       placeholder="Forventet antal studerende..."/>
+                       placeholder="Forventet antal studerende..." required="true"/>
             </div>
             <div>
                 <label for="maxNumbStudents">Højeste antal studerende</label>
                 <input id="maxNumbStudents" th:field="${course.maximumStudents}"
-                       placeholder="Højeste antal studerende..."/>
+                       placeholder="Højeste antal studerende..." required="true"/>
             </div>
             <div>
                 <label for="prerequisites">Forudsætninger</label>
-                <input id="prerequisites" th:field="${course.prerequisites}" placeholder="Forudsætninger..."/>
+                <input id="prerequisites" th:field="${course.prerequisites}" placeholder="Forudsætninger..." required="true"/>
             </div>
             <div>
                 <label for="learningOutcome">Læringsudbytte</label>
-                <input id="learningOutcome" th:field="${course.learningOutcome}" placeholder="Læringsudbytte..."/>
+                <input id="learningOutcome" th:field="${course.learningOutcome}" placeholder="Læringsudbytte..." required="true"/>
             </div>
             <div>
                 <label for="content">Kursus indhold</label>
-                <input id="content" th:field="${course.content}" placeholder="Indhold..."/>
+                <input id="content" th:field="${course.content}" placeholder="Indhold..." required="true"/>
             </div>
             <div>
                 <label for="learningActivities">Læringsaktiviteter</label>
                 <input id="learningActivities" th:field="${course.learningActivities}"
-                       placeholder="Læringsaktiviteter..."/>
+                       placeholder="Læringsaktiviteter..." required="true"/>
             </div>
             <div>
                 <label for="examForm">Eksamensform</label>
-                <input id="examForm" th:field="${course.examForm}" placeholder="Eksamensform..."/>
+                <input id="examForm" th:field="${course.examForm}" placeholder="Eksamensform..." required="true"/>
             </div>
             <div class="teacherSelect">
                 <label for="teachers">Vælg Underviser(e)</label>
-                <select id="teachers" th:field="${course.teachers}" multiple="multiple">
+                <select id="teachers" th:field="${course.teachers}" multiple="multiple" required="true">
                     <option
                             th:each="teacher : ${teachers}"
-                            th:value="${teacher.teacherId}"
+                            th:value="${teacher.id}"
                             th:text="${teacher.firstname + ' ' + teacher.lastname}"
                     ></option>
                 </select>
             </div>
-            <div>
-                <button type="button" class="btn btn-danger backbtn">Tilbage</button>
+            <div class="createDiv">
                 <button type="submit" class="btn btn-success createCoursebtn">Opret Kursus</button>
             </div>
         </form>
     </div>
-    <a href="/editCourse" class="btn btn-warning">Redigér</a>
-    <button type="button" class="btn btn-danger">Slet</button>
 </div>

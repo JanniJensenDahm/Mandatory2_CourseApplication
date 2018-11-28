@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,32 +30,27 @@ public class CourseController {
     @Autowired
     private CourseRepository courseRepository;
 
-    /*
-    Show /newCourse view
-     */
-    /*@GetMapping("/newCourse")
-    public String createNewCourse(Model model){
-        model.addAttribute("course", new Course());
-        ArrayList<Teacher> teachers = (ArrayList<Teacher>) teacherRepository.findAll();
-        ArrayList<StudyProgram> studyPrograms = (ArrayList<StudyProgram>) studyProgramRepository.findAll();
-        model.addAttribute("teachers", teachers);
-        model.addAttribute("studyPrograms", studyPrograms);
-        return "newCourse";
-    }*/
-
-    /*
-    Show /courseList view
-     */
-    @GetMapping("/courseList")
+    @GetMapping("/teacher/courseList")
     public String couseList(Model model){
+        List<Teacher> teachers = teacherRepository.findAll();
+        List<StudyProgram> studyPrograms = studyProgramRepository.findAll();
+        List<Course> courses = courseRepository.findAll();
         model.addAttribute("course", new Course());
-        ArrayList<Teacher> teachers = (ArrayList<Teacher>) teacherRepository.findAll();
-        ArrayList<StudyProgram> studyPrograms = (ArrayList<StudyProgram>) studyProgramRepository.findAll();
         model.addAttribute("teachers", teachers);
         model.addAttribute("studyPrograms", studyPrograms);
-        List<Course> courses = courseRepository.findAll();
-        System.out.println(courses);
         model.addAttribute("courses", courses);
-        return "courseList";
+        return "teacher/courseList";
+    }
+
+    @GetMapping("/teacher/editCourse/{id}")
+    public String editCourse(Model model,
+                             @PathVariable Long id){
+        Course course = courseRepository.findById(id);
+        List<Teacher> teachers = teacherRepository.findAll();
+        List<StudyProgram> studyPrograms = studyProgramRepository.findAll();
+        model.addAttribute("course", course);
+        model.addAttribute("teachers", teachers);
+        model.addAttribute("studyPrograms", studyPrograms);
+        return "teacher/editCourse";
     }
 }

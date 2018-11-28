@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Studerende</title>
+    <link type="text/css" rel="stylesheet" href="../stylesheet.css"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+</head>
+<body>
+
+<div th:replace="/admin/navBar::topMenu"></div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table id="allTeachers" class="table">
+            <thead class="bg-dark">
+            <tr class="teacherListHead">
+                <th scope="col">ID</th>
+                <th scope="col">Fornavn</th>
+                <th scope="col">Efternavn</th>
+                <th class="createColumn" scope="col"><a id="newTeacherbtn" class="btn btn-success newTacherbtn">Opret
+                    Underviser</a></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="teacherInfo" th:each="teacher:${teachers}">
+                <td th:text="${teacher.id}"></td>
+                <td th:text="${teacher.firstname}"></td>
+                <td th:text="${teacher.lastname}"></td>
+                <td>
+                    <a th:href="'/admin/editTeacher/'+${teacher.id}" class="btn btn-warning">
+                        Redigér
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<div id="createNewTeacherModel" class="createNewTeacherModel">
+    <div th:replace="/admin/newTeacher::newTeacher"></div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    //Create new teacher model
+    var newTeacherModel = document.getElementById("createNewTeacherModel");
+    //Button to open new teacher model
+    var newTeacherbtn = document.getElementById("newTeacherbtn");
+    //span to close model
+    var span = document.getElementsByClassName("close")[0];
+
+    //Open new course model
+    newTeacherbtn.onclick = function () {
+        newTeacherModel.style.display = "block";
+    };
+    //Close new teacher model
+    span.onclick = function () {
+        newTeacherModel.style.display = "none";
+    };
+</script>
+
+</body>
+</html>

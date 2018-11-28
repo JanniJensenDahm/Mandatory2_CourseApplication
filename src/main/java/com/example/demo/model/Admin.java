@@ -10,30 +10,27 @@ import javax.persistence.*;
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "admin_id")
-    private Long adminId;
+    private Long id;
     private String firstname;
     private String lastname;
-    private String username;
-    private String password;
+    @OneToOne
+    private Session session;
 
     public Admin() {
     }
 
-    public Admin(Long adminId, String firstname, String lastname, String username, String password) {
-        this.adminId = adminId;
+    public Admin(String firstname, String lastname, Session session) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.username = username;
-        this.password = password;
+        this.session = session;
     }
 
-    public Long getAdminId() {
-        return adminId;
+    public Long getId() {
+        return id;
     }
 
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstname() {
@@ -52,19 +49,11 @@ public class Admin {
         this.lastname = lastname;
     }
 
-    public String getUsername() {
-        return username;
+    public Session getSession() {
+        return session;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSession(Session session) {
+        this.session = session;
     }
 }
