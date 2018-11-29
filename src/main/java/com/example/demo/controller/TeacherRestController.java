@@ -26,7 +26,6 @@ public class TeacherRestController {
 
     @PostMapping("/admin/newTeacher")
     public RedirectView saveCourse(Teacher teacher, Session session) {
-        sessionRepository.save(session);
         teacherRepository.save(teacher);
         return new RedirectView("teacherList");
     }

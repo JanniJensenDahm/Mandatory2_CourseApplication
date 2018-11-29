@@ -30,25 +30,9 @@ public class CourseRestController {
         return new RedirectView("courseList");
     }
 
-    /*@PutMapping("/editCourse/{id}")
-    public RedirectView editCourse(@PathVariable Long id,
-                                   @RequestParam String nameDanish,
-                                   @PathVariable String nameEnglish,
-                                   @PathVariable int semester,
-                                   @PathVariable String classCode,
-                                   @PathVariable String studyProgram,
-                                   @PathVariable boolean mandatoryOrElective,
-                                   @PathVariable int ectsPoints,
-                                   @PathVariable String courseLanguage,
-                                   @PathVariable int minimumStudents,
-                                   @PathVariable int expectedStudents,
-                                   @PathVariable int maximumStudents,
-                                   @PathVariable String prerequisites,
-                                   @PathVariable String learningOutcome,
-                                   @PathVariable String content,
-                                   @PathVariable String learningActivities,
-                                   @PathVariable String examForm) {
-        Course course = new Course(nameDanish, nameEnglish, semester, classCode, studyProgram, mandatoryOrElective, ectsPoints, courseLanguage, minimumStudents, expectedStudents, maximumStudents, prerequisites, learningOutcome, content, learningActivities, examForm);
+    @PutMapping("/teacher/editCourse/{id}")
+    public ResponseEntity editCourse(@PathVariable Long id,
+                                   Course course) {
         Course courseEdit = courseRepository.findById(id);
         courseEdit.setNameDanish(course.getNameDanish());
         courseEdit.setNameEnglish(course.getNameEnglish());
@@ -66,7 +50,14 @@ public class CourseRestController {
         courseEdit.setContent(course.getContent());
         courseEdit.setLearningActivities(course.getLearningActivities());
         courseEdit.setExamForm(course.getExamForm());
+        courseEdit.setTeachers(course.getTeachers());
         courseRepository.save(courseEdit);
-        return new RedirectView("courseList");
-    }*/
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/teacher/deleteCourse/{id}")
+    public ResponseEntity deleteCourse(@PathVariable Long id){
+        courseRepository.delete(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

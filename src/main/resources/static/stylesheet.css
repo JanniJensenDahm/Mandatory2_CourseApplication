@@ -5,18 +5,18 @@
 }
 
 .createForm,
-.showForm{
+.editForm{
     max-width: 500px;
     margin: auto;
 }
 
 .createForm div,
-.showForm div{
+.editForm div{
     padding: 10px;
 }
 
 .createForm input, select,
-.showForm input, select{
+.editForm input, select{
     float: right;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .createColumn{
-    width: 120px;
+    width: 170px;
 }
 
 .row{

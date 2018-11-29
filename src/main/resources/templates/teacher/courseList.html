@@ -38,6 +38,8 @@
                     <a th:href="'/teacher/editCourse/'+${course.id}" class="btn btn-warning">
                         Redigér
                     </a>
+                    <button type="button" class="course-delete btn btn-danger" th:attr="data-id=${course.id}">Slet
+                    </button>
                 </td>
             </tr>
             </tbody>
@@ -71,6 +73,17 @@
     span.onclick = function () {
         newCourseModel.style.display = "none";
     };
+
+    $(document).on("click", ".course-delete", function () {
+        var courseId = $(this).data("id");
+        $.ajax({
+            url: "http://localhost:8080/teacher/deleteCourse/" + courseId,
+            method: "delete",
+            success: function () {
+                location.reload();
+            }
+        });
+    })
 </script>
 
 </body>
