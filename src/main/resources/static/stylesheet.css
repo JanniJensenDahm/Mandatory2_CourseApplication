@@ -26,12 +26,14 @@
 
 .createCoursebtn,
 .saveCoursebtn,
-.createTeacherbtn{
+.createTeacherbtn,
+.createStudentbtn{
     float: right;
 }
 
 .createNewCourseModel,
-.createNewTeacherModel{
+.createNewTeacherModel,
+.createNewStudentModel{
     display: none;
     position: fixed;
     z-index: 1;
@@ -54,11 +56,20 @@
     width: 80%;
 }
 
+.createNewStudentContent{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid gray;
+    width: 40%;
+}
+
 .close{
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
+
 }
 
 .createDiv{
@@ -66,13 +77,15 @@
 }
 
 .newCoursebtn,
-.newTacherbtn{
+.newTacherbtn,
+.newStudentbtn{
     float: right;
 }
 
 .courseListHead,
 .loginHead,
-.teacherListHead{
+.teacherListHead,
+.studentListHead{
     color: white;
 }
 
@@ -111,6 +124,10 @@
 .row{
     margin-right: 0;
     margin-left: 0;
+}
+
+.newStudentFormular{
+    width: 400px;
 }
 
 

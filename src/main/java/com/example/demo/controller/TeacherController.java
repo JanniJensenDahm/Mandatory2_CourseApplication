@@ -1,11 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.RoleRepository;
-import com.example.demo.SessionRepository;
-import com.example.demo.TeacherRepository;
-import com.example.demo.model.Role;
-import com.example.demo.model.Session;
-import com.example.demo.model.Teacher;
+import com.example.demo.*;
+import com.example.demo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,19 +18,19 @@ public class TeacherController {
     @Autowired
     private TeacherRepository teacherRepository;
     @Autowired
-    private SessionRepository sessionRepository;
+    private StudyProgramRepository studyProgramRepository;
     @Autowired
-    private RoleRepository roleRepository;
+    private CourseRepository courseRepository;
 
-    @GetMapping("/admin/teacherList")
-    public String teacherList(Model model){
+    @GetMapping("/teacher/courseList")
+    public String couseList(Model model){
         List<Teacher> teachers = teacherRepository.findAll();
-        List<Session> sessions = sessionRepository.findAll();
-        List<Role> roles = roleRepository.findAll();
-        model.addAttribute("teacher", new Teacher());
+        List<StudyProgram> studyPrograms = studyProgramRepository.findAll();
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("course", new Course());
         model.addAttribute("teachers", teachers);
-        model.addAttribute("sessions", sessions);
-        model.addAttribute("roles", roles);
-        return "admin/teacherList";
+        model.addAttribute("studyPrograms", studyPrograms);
+        model.addAttribute("courses", courses);
+        return "teacher/courseList";
     }
 }

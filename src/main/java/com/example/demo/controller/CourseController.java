@@ -30,18 +30,6 @@ public class CourseController {
     @Autowired
     private CourseRepository courseRepository;
 
-    @GetMapping("/teacher/courseList")
-    public String couseList(Model model){
-        List<Teacher> teachers = teacherRepository.findAll();
-        List<StudyProgram> studyPrograms = studyProgramRepository.findAll();
-        List<Course> courses = courseRepository.findAll();
-        model.addAttribute("course", new Course());
-        model.addAttribute("teachers", teachers);
-        model.addAttribute("studyPrograms", studyPrograms);
-        model.addAttribute("courses", courses);
-        return "teacher/courseList";
-    }
-
     @GetMapping("/teacher/editCourse/{id}")
     public String editCourse(Model model,
                              @PathVariable Long id){

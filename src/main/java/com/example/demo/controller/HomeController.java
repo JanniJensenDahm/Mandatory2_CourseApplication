@@ -19,8 +19,18 @@ public class HomeController {
         return "login";
     }
 
+    @GetMapping("/admin/adminSite")
+    private String adminSite(){
+        return "admin/adminSite";
+    }
+
     @GetMapping("/teacher/teacherSite")
     private String teacherSite(){
         return "teacher/teacherSite";
+    }
+
+    @GetMapping("/student/studentSite")
+    private String studentSite(){
+        return "student/studentSite";
     }
 }

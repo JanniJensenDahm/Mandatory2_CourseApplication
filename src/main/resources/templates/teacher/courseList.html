@@ -30,18 +30,21 @@
             </thead>
             <tbody>
             <tr class="courseInfo" th:each="course:${courses}">
-                <td th:text="${course.id}"></td>
-                <td th:text="${course.nameDanish}"></td>
-                <td th:text="${course.nameEnglish}"></td>
-                <td th:text="${course.ectsPoints}"></td>
-                <td>
-                    <a th:href="'/teacher/editCourse/'+${course.id}" class="btn btn-warning">
-                        Redigér
-                    </a>
-                    <button type="button" class="course-delete btn btn-danger" th:attr="data-id=${course.id}">Slet
-                    </button>
-                </td>
+                <a href="'/teacher/showCourse'+${course.id}">
+                    <td th:text="${course.id}"></td>
+                    <td th:text="${course.nameDanish}"></td>
+                    <td th:text="${course.nameEnglish}"></td>
+                    <td th:text="${course.ectsPoints}"></td>
+                    <td>
+                        <a th:href="'/teacher/editCourse/'+${course.id}" class="btn btn-warning">
+                            Redigér
+                        </a>
+                        <button type="button" class="course-delete btn btn-danger" th:attr="data-id=${course.id}">Slet
+                        </button>
+                    </td>
+                </a>
             </tr>
+
             </tbody>
         </table>
     </div>

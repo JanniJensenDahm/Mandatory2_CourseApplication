@@ -13,7 +13,7 @@ public class Student {
     private Long id;
     private String firstname;
     private String lastname;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Session session;
 
     public Student() {
