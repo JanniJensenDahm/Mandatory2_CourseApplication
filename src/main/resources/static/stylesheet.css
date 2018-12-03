@@ -6,7 +6,7 @@
 
 .createForm,
 .editForm{
-    max-width: 500px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -51,7 +51,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid gray;
-    width: 40%;
+    width: 80%;
 }
 
 .close{
@@ -91,4 +91,26 @@
 .navbar a{
     float: left;
 }
+
+.createForm input, select, textarea,
+.editForm input, select, textarea{
+    width: 200px;
+}
+
+.createForm textarea,
+.editForm textarea{
+    height: 80px;
+    float: right;
+    resize: none;
+}
+
+.textArea{
+    height: 100px;
+}
+
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
+
 

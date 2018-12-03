@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Redigér Kursus</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+    <link type="text/css" rel="stylesheet" href="../../stylesheet.css"/>
+
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="editCourseContent">
+            <form class="courseForm showForm">
+                <div class="row formRow">
+                    <div class="col-md-6">
+                        <div>
+                            <label for="nameDanish">Kursusnavn Dansk</label>
+                            <input type="text" id="nameDanish" th:field="${course.nameDanish}" readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="nameEnglish">Kursusnavn Engelsk</label>
+                            <input type="text" id="nameEnglish" th:field="${course.nameEnglish}" readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="semester">Semester</label>
+                            <input type="number" id="semester" th:field="${course.semester}" readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="classCode">Klassekode</label>
+                            <input type="text" id="classCode" th:field="${course.classCode}" readonly="true"/>
+                        </div>
+                        <div class="studyProgram">
+                            <label for="studyProgram">Vælg Studieprogram</label>
+                            <input type="text" id="studyProgram" th:field="${course.studyProgram}" readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="mandatoryElective">Obligatorisk eller valgfrit</label>
+                            <input type="text" id="mandatoryElective" th:field="${course.mandatoryOrElective}"
+                                   readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="ects">ECTS</label>
+                            <input type="text" id="ects" th:field="${course.ectsPoints}" readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="courseLanguage">Sprog</label>
+                            <input type="text" id="courseLanguage" th:field="${course.courseLanguage}" readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="minNumbStudents">Mindste antal studerende</label>
+                            <input type="number" id="minNumbStudents" th:field="${course.minimumStudents}"
+                                   readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="expNumbStudents">Forventet antal studerende</label>
+                            <input type="number" id="expNumbStudents" th:field="${course.expectedStudents}"
+                                   readonly="true"/>
+                        </div>
+                        <div>
+                            <label for="maxNumbStudents">Højeste antal studerende</label>
+                            <input type="number" id="maxNumbStudents" th:field="${course.maximumStudents}"
+                                   readonly="true"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="textArea">
+                            <label for="prerequisites">Forudsætninger</label>
+                            <textarea id="prerequisites" th:field="${course.prerequisites}" readonly="true"></textarea>
+                        </div>
+                        <div class="textArea">
+                            <label for="learningOutcome">Læringsudbytte</label>
+                            <textarea id="learningOutcome" th:field="${course.learningOutcome}"
+                                      readonly="true"></textarea>
+                        </div>
+                        <div class="textArea">
+                            <label for="content">Kursus indhold</label>
+                            <textarea id="content" th:field="${course.content}" readonly="true"></textarea>
+                        </div>
+                        <div class="textArea">
+                            <label for="learningActivities">Læringsaktiviteter</label>
+                            <textarea id="learningActivities" th:field="${course.learningActivities}"
+                                      readonly="true"></textarea>
+                        </div>
+                        <div class="textArea">
+                            <label for="examForm">Eksamensform</label>
+                            <textarea id="examForm" th:field="${course.examForm}" readonly="true"></textarea>
+                        </div>
+                        <div class="teacherSelect">
+                            <label for="teachers">Vælg Underviser(e)</label>
+                            <input id="teachers" th:field="course.teachers"
+                                   th:each="teacher : ${teachers}"
+                                   th:value="${teacher.id}"
+                                   th:text="${teacher.firstname + ' ' + teacher.lastname + ' '}" readonly="true"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
+</html>

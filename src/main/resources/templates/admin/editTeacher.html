@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Redigér Underviser</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+    <link type="text/css" rel="stylesheet" href="../../stylesheet.css"/>
+</head>
+<body>
+<div class="createNewTeacherContent">
+    <form class="teacherForm editForm" th:object="${teacher}">
+        <div>
+            <label for="firstname">Fornavn</label>
+            <input id="firstname" th:field="${teacher.firstname}" placeholder="Fornavn..." required="true"/>
+        </div>
+        <div>
+            <label for="lastname">Efternavn</label>
+            <input id="lastname" th:field="${teacher.lastname}" placeholder="Efternavn..." required="true"/>
+        </div>
+        <div>
+            <label for="username">Brugernavn</label>
+            <input id="username" th:field="${teacher.session.username}" placeholder="Brugernavn..." required="true"/>
+        </div>
+        <div>
+            <label for="password">Adgangskode</label>
+            <input id="password" th:field="${teacher.session.password}" placeholder="Adgangskode..." required="true"/>
+        </div>
+        <div class="role">
+            <label for="role">Vælg Rolle</label>
+            <select id="role" th:field="${teacher.session.role}" required="true">
+                <option
+                        th:each="role:${roles}"
+                        th:value="${role.id}"
+                        th:text="${role.role}"></option>
+            </select>
+        </div>
+        <div>
+            <a href="/admin/teacherList" class="btn btn-danger backbtn">Tilbage</a>
+            <button type="button" class="btn btn-success editTeacherbtn">Gem</button>
+        </div>
+    </form>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script th:inline="javascript">
+    $(document).on('click', '#editTeacherbtn', function () {
+        var teacherid = [[${teacher.id}]];
+        console.log(teacherid);
+        $.ajax({
+            url: "http://localhost:8080/admin/editTeacher/" + teacherid,
+            method: "put",
+            data: {
+                firstname: $('#firstname').val(),
+                lastname: $('#lastname').val(),
+                username: $('#username').val(),
+                password: $('#password').val(),
+                role: $('#role').val()
+            },
+            success: function () {
+                location.href = "/admin/teacherList";
+            }
+        });
+    })
+</script>
+</body>
+</html>

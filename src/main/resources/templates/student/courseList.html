@@ -14,7 +14,7 @@
 
 <div th:replace="/teacher/navBar::topMenu"></div>
 
-<div class="row">
+<div class="row courseList">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <table id="allCourses" class="table">
@@ -24,8 +24,7 @@
                 <th scope="col">Kursusnavn Dansk</th>
                 <th scope="col">Kursusnavn Engelsk</th>
                 <th scope="col">ECTS</th>
-                <th class="createColumn" scope="col"><a id="newCoursebtn" class="btn btn-success newCoursebtn">Opret
-                    Kursus</a></th>
+                <th class="createColumn" scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -35,11 +34,9 @@
                 <td th:text="${course.nameEnglish}"></td>
                 <td th:text="${course.ectsPoints}"></td>
                 <td>
-                    <a th:href="'/teacher/editCourse/'+${course.id}" class="btn btn-warning">
-                        Redigér
+                    <a th:href="'/student/showCourse/'+${course.id}" class="btn btn-warning show-course">
+                        Vis
                     </a>
-                    <button type="button" class="course-delete btn btn-danger" th:attr="data-id=${course.id}">Slet
-                    </button>
                 </td>
             </tr>
             </tbody>
@@ -56,35 +53,6 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script>
-    //Create new course model
-    var newCourseModel = document.getElementById("createNewCourseModel");
-    //Button to open new course model
-    var newCoursebtn = document.getElementById("newCoursebtn");
-    //span to close model
-    var span = document.getElementsByClassName("close")[0];
-
-    //Open new course model
-    newCoursebtn.onclick = function () {
-        newCourseModel.style.display = "block";
-    };
-    //Close new course model
-    span.onclick = function () {
-        newCourseModel.style.display = "none";
-    };
-
-    $(document).on("click", ".course-delete", function () {
-        var courseId = $(this).data("id");
-        $.ajax({
-            url: "http://localhost:8080/teacher/deleteCourse/" + courseId,
-            method: "delete",
-            success: function () {
-                location.reload();
-            }
-        });
-    })
-</script>
 
 </body>
 </html>
