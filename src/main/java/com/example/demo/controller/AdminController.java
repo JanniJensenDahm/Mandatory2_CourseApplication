@@ -1,13 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.RoleRepository;
-import com.example.demo.SessionRepository;
-import com.example.demo.StudentRepository;
-import com.example.demo.TeacherRepository;
-import com.example.demo.model.Role;
-import com.example.demo.model.Session;
-import com.example.demo.model.Student;
-import com.example.demo.model.Teacher;
+import com.example.demo.*;
+import com.example.demo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +23,15 @@ public class AdminController {
     private RoleRepository roleRepository;
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private CourseRepository courseRepository;
+
+    @GetMapping("/admin/courseList")
+    public String courseList(Model model){
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("courses", courses);
+        return "admin/courseList";
+    }
 
     @GetMapping("/admin/teacherList")
     public String teacherList(Model model){

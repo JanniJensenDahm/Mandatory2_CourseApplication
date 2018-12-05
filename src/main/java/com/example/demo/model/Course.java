@@ -41,7 +41,7 @@ public class Course {
     public Course() {
     }
 
-    public Course(String nameDanish, String nameEnglish, int semester, String classCode, StudyProgram studyProgram, boolean mandatoryOrElective, int ectsPoints, String courseLanguage, int minimumStudents, int expectedStudents, int maximumStudents, String prerequisites, String learningOutcome, String content, String learningActivities, String examForm, List<Teacher> teachers, List<Student> students) {
+    public Course(String nameDanish, String nameEnglish, int semester, String classCode, StudyProgram studyProgram, boolean mandatoryOrElective, int ectsPoints, String courseLanguage, int minimumStudents, int expectedStudents, int maximumStudents, String prerequisites, String learningOutcome, String content, String learningActivities, String examForm, List<Student> students, List<Teacher> teachers, List<Student> students1) {
         this.nameDanish = nameDanish;
         this.nameEnglish = nameEnglish;
         this.semester = semester;
@@ -58,8 +58,9 @@ public class Course {
         this.content = content;
         this.learningActivities = learningActivities;
         this.examForm = examForm;
-        this.teachers = teachers;
         this.students = students;
+        this.teachers = teachers;
+        this.students = students1;
     }
 
     public Long getId() {
@@ -198,19 +199,19 @@ public class Course {
         this.examForm = examForm;
     }
 
-    public List<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
-    }
-
     public List<Student> getStudents() {
         return students;
     }
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 }

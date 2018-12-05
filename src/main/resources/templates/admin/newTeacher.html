@@ -1,36 +1,44 @@
 <div id="newTeacher" th:fragment="newTeacher" xmlns:th="http://www.thymeleaf.org">
     <div class="createNewTeacherContent">
-        <span class="close">&times;</span>
-        <form class="createForm" method="post" action="/admin/newTeacher">
-            <div>
-                <label for="firstname">Fornavn</label>
-                <input id="firstname" th:field="${teacher.firstname}" placeholder="Fornavn..." required="true"/>
-            </div>
-            <div>
-                <label for="lastname">Efternavn</label>
-                <input id="lastname" th:field="${teacher.lastname}" placeholder="Efternavn..." required="true"/>
-            </div>
-            <div>
-                <label for="username">Brugernavn</label>
-                <input id="username" th:field="${teacher.session.username}" placeholder="Brugernavn..." required="true"/>
-            </div>
-            <div>
-                <label for="password">Adgangskode</label>
-                <input id="password" th:field="${teacher.session.password}" placeholder="Adgangskode..." required="true"/>
-            </div>
-            <div class="role">
-                <label for="role">Vælg Rolle</label>
-                <select id="role" th:field="${teacher.session.role}" required="true">
-                    <option
-                            th:each="role:${roles}"
-                            th:value="${role.id}"
-                            th:text="${role.role}"></option>
-                </select>
-            </div>
-            <div>
-                <button type="button" class="btn btn-danger backbtn">Tilbage</button>
-                <button type="submit" class="btn btn-success createTeacherbtn">Opret Underviser</button>
-            </div>
-        </form>
+        <div class="row close">
+            <span class="close">&times;</span>
+        </div>
+        <div class="row">
+            <form class="createForm" method="post" action="/admin/newTeacher">
+                <div class="newTeacherFormular">
+                    <div>
+                        <label for="firstname">Fornavn</label>
+                        <input id="firstname" th:field="${teacher.firstname}" placeholder="Fornavn..." required="true"/>
+                    </div>
+                    <div>
+                        <label for="lastname">Efternavn</label>
+                        <input id="lastname" th:field="${teacher.lastname}" placeholder="Efternavn..." required="true"/>
+                    </div>
+                    <div>
+                        <label for="username">Brugernavn</label>
+                        <input id="username" th:field="${teacher.session.username}" placeholder="Brugernavn..."
+                               required="true"/>
+                    </div>
+                    <div>
+                        <label for="password">Adgangskode</label>
+                        <input id="password" th:field="${teacher.session.password}" placeholder="Adgangskode..."
+                               required="true"/>
+                    </div>
+                    <div class="role">
+                        <label for="role">Vælg Rolle</label>
+                        <select id="role" th:field="${teacher.session.role}" required="true">
+                            <option
+                                    th:each="role:${roles}"
+                                    th:value="${role.id}"
+                                    th:text="${role.role}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-danger backbtn">Tilbage</button>
+                        <button type="submit" class="btn btn-success createTeacherbtn">Opret Underviser</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tilføj Studerende</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+    <link type="text/css" rel="stylesheet" href="../../stylesheet.css"/>
+</head>
+<body>
+<div class="row addStudentRow">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 addStudentDiv">
+        <form id="addStudent">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="studentSelect">
+                        <label for="students">Vælg Studerende</label>
+                        <select class="addStudentSelect" id="students" th:field="${course.students}" multiple="multiple"
+                                required="true">
+                            <option
+                                    th:each="student : ${students}"
+                                    th:value="${student.id}"
+                                    th:text="${student.firstname + ' ' + student.lastname}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="createDiv">
+                        <a href="/admin/courseList" class="btn btn-danger">Tilbage</a>
+                        <button type="button" class="btn btn-success addStudentbtn" id="addStudentbtn">Gem</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script th:inline="javascript">
+    $(document).on('click', '#addStudentbtn', function () {
+        var courseid = [[${course.id}]];
+        $.ajax({
+            url: "http://localhost:8080/admin/addStudent/" + courseid,
+            method: "put",
+            data:$('#addStudent').serialize(),
+            success: function () {
+                location.href = "/admin/courseList";
+            }
+        });
+    })
+</script>
+</body>
+</html>

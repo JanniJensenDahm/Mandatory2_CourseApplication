@@ -50,7 +50,9 @@ public class CourseRestController {
         courseEdit.setContent(course.getContent());
         courseEdit.setLearningActivities(course.getLearningActivities());
         courseEdit.setExamForm(course.getExamForm());
+        System.out.println(course.getTeachers());
         courseEdit.setTeachers(course.getTeachers());
+        System.out.println(courseEdit.getTeachers());
         courseRepository.save(courseEdit);
         return new ResponseEntity(HttpStatus.OK);
     }
@@ -58,6 +60,15 @@ public class CourseRestController {
     @DeleteMapping("/teacher/deleteCourse/{id}")
     public ResponseEntity deleteCourse(@PathVariable Long id){
         courseRepository.delete(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PutMapping("/admin/addStudent/{id}")
+    public ResponseEntity addStudent(@PathVariable Long id,
+                                     Course course) {
+        Course courseEdit = courseRepository.findById(id);
+        courseEdit.setStudents(course.getStudents());
+        courseRepository.save(courseEdit);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

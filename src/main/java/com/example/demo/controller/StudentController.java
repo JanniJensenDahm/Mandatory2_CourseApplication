@@ -36,6 +36,6 @@ public class StudentController {
         model.addAttribute("roles", roles);
         model.addAttribute("student", new Student());
 
-        return "admin/newStudent";
+        return "newPerson";
     }
 }

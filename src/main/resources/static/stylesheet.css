@@ -27,7 +27,8 @@
 .createCoursebtn,
 .saveCoursebtn,
 .createTeacherbtn,
-.createStudentbtn{
+.createStudentbtn,
+.addStudentbtn{
     float: right;
 }
 
@@ -47,8 +48,7 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-.createNewCourseContent,
-.createNewTeacherContent{
+.createNewCourseContent{
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -56,7 +56,8 @@
     width: 80%;
 }
 
-.createNewStudentContent{
+.createNewStudentContent,
+.createNewTeacherContent{
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -69,7 +70,6 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
-
 }
 
 .createDiv{
@@ -78,7 +78,8 @@
 
 .newCoursebtn,
 .newTacherbtn,
-.newStudentbtn{
+.newStudentbtn,
+.addStudentbtn{
     float: right;
 }
 
@@ -126,8 +127,22 @@
     margin-left: 0;
 }
 
-.newStudentFormular{
+.newStudentFormular,
+.newTeacherFormular{
     width: 400px;
 }
 
+.addStudentDiv{
+    max-width: 500px;
+    margin: auto;
+}
+
+.addStudentSelect{
+    height: 200px;
+    width: 300px;
+}
+
+.addStudentRow{
+    padding-top: 15%;
+}
 

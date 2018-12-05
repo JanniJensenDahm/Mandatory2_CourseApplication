@@ -14,7 +14,7 @@
     <div class="col-md-1"></div>
     <div class="col-md-10">
         <div class="editCourseContent">
-            <form class="editForm" th:object="${course}">
+            <form id="editCourse" class="editForm" th:object="${course}">
                 <div class="row">
                     <div class="col-md-6">
                         <div>
@@ -108,7 +108,7 @@
                         </div>
                         <div class="teacherSelect">
                             <label for="teachers">Vælg Underviser(e)</label>
-                            <select id="teachers" th:field="${course.teachers}" multiple="multiple" required="true">
+                            <select id="teachers" th:field="${course.teachers}" multiple="multiple" required="true" name="teachers">
                                 <option
                                         th:each="teacher : ${teachers}"
                                         th:value="${teacher.id}"
@@ -122,7 +122,7 @@
                     <div class="col-md-12">
                         <div class="createDiv">
                             <a href="/teacher/courseList" class="btn btn-danger">Tilbage</a>
-                            <button type="button" class="btn btn-success saveCoursebtn" id="editCoursebtn">Gem</button>
+                            <button type="submit" class="btn btn-success saveCoursebtn" id="editCoursebtn">Gem</button>
                         </div>
                     </div>
                 </div>
@@ -143,25 +143,7 @@
         $.ajax({
             url: "http://localhost:8080/teacher/editCourse/" + courseid,
             method: "put",
-            data: {
-                nameDanish: $('#nameDanish').val(),
-                nameEnglish: $('#nameEnglish').val(),
-                semester: $('#semester').val(),
-                classCode: $('#classCode').val(),
-                studyProgram: $('#studyProgram').val(),
-                mandatoryElective: $('#mandatoryElective').val(),
-                ectsPoints: $('#ects').val(),
-                courseLanguage: $('#courseLanguage').val(),
-                minimumStudents: $('#minNumbStudents').val(),
-                expectedStudents: $('#expNumbStudents').val(),
-                maximumStudents: $('#maxNumbStudents').val(),
-                prerequisites: $('#prerequisites').val(),
-                learningOutcome: $('#learningOutcome').val(),
-                content: $('#content').val(),
-                learningActivities: $('#learningActivities').val(),
-                examForm: $('#examForm').val(),
-                teachers: $('#teachers option:selected').val()
-            },
+            data: $("#editCourse").serialize(),
             success: function () {
                 location.href = "/teacher/courseList";
             }
