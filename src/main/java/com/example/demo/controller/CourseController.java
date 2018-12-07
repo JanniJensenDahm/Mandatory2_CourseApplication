@@ -9,13 +9,10 @@ import com.example.demo.model.Student;
 import com.example.demo.model.StudyProgram;
 import com.example.demo.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,5 +51,14 @@ public class CourseController {
         model.addAttribute("course", course);
         model.addAttribute("students", students);
         return "admin/addStudent";
+    }
+
+    @GetMapping("/admin/courseStudents/{id}")
+    public String courseStudents(Model model, @PathVariable Long id){
+        Course course = courseRepository.findById(id);
+        List<Student> students = studentRepository.findAll();
+        model.addAttribute("course", course);
+        model.addAttribute("students", students);
+        return "admin/courseStudents";
     }
 }

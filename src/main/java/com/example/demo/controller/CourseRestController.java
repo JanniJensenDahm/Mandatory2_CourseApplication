@@ -50,9 +50,7 @@ public class CourseRestController {
         courseEdit.setContent(course.getContent());
         courseEdit.setLearningActivities(course.getLearningActivities());
         courseEdit.setExamForm(course.getExamForm());
-        System.out.println(course.getTeachers());
         courseEdit.setTeachers(course.getTeachers());
-        System.out.println(courseEdit.getTeachers());
         courseRepository.save(courseEdit);
         return new ResponseEntity(HttpStatus.OK);
     }

@@ -34,9 +34,7 @@
                 <td th:text="${course.nameEnglish}"></td>
                 <td th:text="${course.ectsPoints}"></td>
                 <td>
-                    <a th:href="'/admin/addStudent/'+${course.id}" class="btn btn-warning add-student">
-                        Tilføj Studerende
-                    </a>
+                    <a th:href="'/admin/courseStudents/'+${course.id}" class="btn btn-warning">Studerende</a>
                 </td>
             </tr>
             </tbody>
