@@ -17,6 +17,13 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
+        <h1>Kurser</h1>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <table id="allCourses" class="table">
             <thead class="bg-dark">
             <tr class="courseListHead">
@@ -83,7 +90,7 @@
             url: "http://localhost:8080/teacher/deleteCourse/" + courseId,
             method: "delete",
             success: function () {
-                location.reload();
+                location.reload(); //window.location
             }
         });
     })

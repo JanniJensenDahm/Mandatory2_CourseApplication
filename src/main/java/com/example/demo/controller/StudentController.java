@@ -1,15 +1,12 @@
 package com.example.demo.controller;
 
-import com.example.demo.RoleRepository;
-import com.example.demo.SessionRepository;
-import com.example.demo.StudentRepository;
-import com.example.demo.model.Role;
-import com.example.demo.model.Session;
-import com.example.demo.model.Student;
+import com.example.demo.*;
+import com.example.demo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -20,22 +17,32 @@ import java.util.List;
 @Controller
 public class StudentController {
     @Autowired
-    private StudentRepository studentRepository;
+    private CourseRepository courseRepository;
     @Autowired
-    private SessionRepository sessionRepository;
+    private TeacherRepository teacherRepository;
     @Autowired
-    private RoleRepository roleRepository;
+    private StudyProgramRepository studyProgramRepository;
 
-    @GetMapping("/admin/newStudent")
-    public String newStudent(Model model){
-        List<Student> students = studentRepository.findAll();
-        List<Session> sessions = sessionRepository.findAll();
-        List<Role> roles = roleRepository.findAll();
-        model.addAttribute("students", students);
-        model.addAttribute("sessions", sessions);
-        model.addAttribute("roles", roles);
-        model.addAttribute("student", new Student());
+    @GetMapping("/student/courseList")
+    public String couseList(Model model){
+        List<Teacher> teachers = teacherRepository.findAll();
+        List<StudyProgram> studyPrograms = studyProgramRepository.findAll();
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("teachers", teachers);
+        model.addAttribute("studyPrograms", studyPrograms);
+        model.addAttribute("courses", courses);
+        return "student/courseList";
+    }
 
-        return "newPerson";
+    @GetMapping("/student/showCourse/{id}")
+    public String showCourse(@PathVariable Long id, Model model){
+        Course course = courseRepository.findById(id);
+        List<Teacher> teachers = teacherRepository.findAll();
+        List<StudyProgram> studyPrograms = studyProgramRepository.findAll();
+        model.addAttribute(course);
+        model.addAttribute(teachers);
+        model.addAttribute(studyPrograms);
+
+        return "student/showCourse";
     }
 }

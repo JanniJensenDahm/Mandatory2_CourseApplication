@@ -17,28 +17,33 @@
 <div class="row courseList">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <table id="allCourses" class="table">
-            <thead class="bg-dark">
-            <tr class="courseListHead">
-                <th scope="col">ID</th>
-                <th scope="col">Kursusnavn Dansk</th>
-                <th scope="col">Kursusnavn Engelsk</th>
-                <th scope="col">ECTS</th>
-                <th class="createColumn" scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="courseInfo" th:each="course:${courses}">
-                <td th:text="${course.id}"></td>
-                <td th:text="${course.nameDanish}"></td>
-                <td th:text="${course.nameEnglish}"></td>
-                <td th:text="${course.ectsPoints}"></td>
-                <td>
-                    <a th:href="'/admin/courseStudents/'+${course.id}" class="btn btn-warning">Studerende</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <h1>Kurser</h1>
+        </div>
+        <div class="row">
+            <table id="allCourses" class="table">
+                <thead class="bg-dark">
+                <tr class="courseListHead">
+                    <th scope="col">ID</th>
+                    <th scope="col">Kursusnavn Dansk</th>
+                    <th scope="col">Kursusnavn Engelsk</th>
+                    <th scope="col">ECTS</th>
+                    <th class="createColumn" scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="courseInfo" th:each="course:${courses}">
+                    <td th:text="${course.id}"></td>
+                    <td th:text="${course.nameDanish}"></td>
+                    <td th:text="${course.nameEnglish}"></td>
+                    <td th:text="${course.ectsPoints}"></td>
+                    <td>
+                        <a th:href="'/admin/courseStudents/'+${course.id}" class="btn btn-warning">Studerende</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="col-md-2"></div>
 </div>

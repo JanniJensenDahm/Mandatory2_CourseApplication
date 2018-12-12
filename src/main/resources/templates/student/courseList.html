@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div th:replace="/teacher/navBar::topMenu"></div>
+<div th:replace="/student/navBar::topMenu"></div>
 
 <div class="row courseList">
     <div class="col-md-2"></div>
@@ -24,7 +24,7 @@
                 <th scope="col">Kursusnavn Dansk</th>
                 <th scope="col">Kursusnavn Engelsk</th>
                 <th scope="col">ECTS</th>
-                <th class="createColumn" scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -33,20 +33,14 @@
                 <td th:text="${course.nameDanish}"></td>
                 <td th:text="${course.nameEnglish}"></td>
                 <td th:text="${course.ectsPoints}"></td>
-                <td>
-                    <a th:href="'/student/showCourse/'+${course.id}" class="btn btn-warning show-course">
-                        Vis
-                    </a>
-                </td>
+                <td><a th:href="'/student/showCourse/'+${course.id}" class="btn btn-warning">
+                    Se Kursus
+                </a></td>
             </tr>
             </tbody>
         </table>
     </div>
     <div class="col-md-2"></div>
-</div>
-
-<div id="createNewCourseModel" class="createNewCourseModel">
-    <div th:replace="/teacher/newCourse::newCourse"></div>
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"

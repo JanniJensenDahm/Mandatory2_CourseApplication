@@ -14,8 +14,8 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <div class="editCourseContent">
-            <form class="courseForm showForm">
+        <div class="showCourseContent">
+            <form class="showForm">
                 <div class="row formRow">
                     <div class="col-md-6">
                         <div>
@@ -96,6 +96,13 @@
                                    th:each="teacher : ${teachers}"
                                    th:value="${teacher.id}"
                                    th:text="${teacher.firstname + ' ' + teacher.lastname + ' '}" readonly="true"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="createDiv">
+                            <a href="/student/courseList" class="btn btn-danger">Tilbage</a>
                         </div>
                     </div>
                 </div>

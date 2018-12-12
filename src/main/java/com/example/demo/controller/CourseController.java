@@ -52,13 +52,4 @@ public class CourseController {
         model.addAttribute("students", students);
         return "admin/addStudent";
     }
-
-    @GetMapping("/admin/courseStudents/{id}")
-    public String courseStudents(Model model, @PathVariable Long id){
-        Course course = courseRepository.findById(id);
-        List<Student> students = studentRepository.findAll();
-        model.addAttribute("course", course);
-        model.addAttribute("students", students);
-        return "admin/courseStudents";
-    }
 }

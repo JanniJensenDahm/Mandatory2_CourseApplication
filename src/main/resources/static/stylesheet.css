@@ -5,18 +5,21 @@
 }
 
 .createForm,
-.editForm{
+.editForm,
+.showForm{
     max-width: 1000px;
     margin: auto;
 }
 
 .createForm div,
-.editForm div{
+.editForm div,
+.showForm div{
     padding: 10px;
 }
 
 .createForm input, select,
-.editForm input, select{
+.editForm input, select ,
+.showForm input, select{
     float: right;
 }
 
@@ -107,12 +110,14 @@
 }
 
 .createForm input, select, textarea,
-.editForm input, select, textarea{
+.editForm input, select, textarea,
+.showForm input, select, textarea{
     width: 200px;
 }
 
 .createForm textarea,
-.editForm textarea{
+.editForm textarea,
+.showForm textarea{
     height: 80px;
     float: right;
     resize: none;

@@ -15,29 +15,34 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <table id="allTeachers" class="table">
-            <thead class="bg-dark">
-            <tr class="teacherListHead">
-                <th scope="col">ID</th>
-                <th scope="col">Fornavn</th>
-                <th scope="col">Efternavn</th>
-                <th class="createColumn" scope="col"><a id="newTeacherbtn" class="btn btn-success newTacherbtn">Opret
-                    Underviser</a></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="teacherInfo" th:each="teacher:${teachers}">
-                <td th:text="${teacher.id}"></td>
-                <td th:text="${teacher.firstname}"></td>
-                <td th:text="${teacher.lastname}"></td>
-                <td>
-                    <a th:href="'/admin/editTeacher/'+${teacher.id}" class="btn btn-warning">
-                        Redigér
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <h1>Undervisere</h1>
+        </div>
+        <div class="row">
+            <table id="allTeachers" class="table">
+                <thead class="bg-dark">
+                <tr class="teacherListHead">
+                    <th scope="col">ID</th>
+                    <th scope="col">Fornavn</th>
+                    <th scope="col">Efternavn</th>
+                    <th class="createColumn" scope="col"><a id="newTeacherbtn" class="btn btn-success newTacherbtn">Opret
+                        Underviser</a></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="teacherInfo" th:each="teacher:${teachers}">
+                    <td th:text="${teacher.id}"></td>
+                    <td th:text="${teacher.firstname}"></td>
+                    <td th:text="${teacher.lastname}"></td>
+                    <td>
+                        <a th:href="'/admin/editTeacher/'+${teacher.id}" class="btn btn-warning">
+                            Redigér
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="col-md-2"></div>
 </div>
