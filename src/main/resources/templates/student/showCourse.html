@@ -91,10 +91,9 @@
                             <textarea id="examForm" th:field="${course.examForm}" readonly="true"></textarea>
                         </div>
                         <div class="teacherSelect">
-                            <label for="teachers">Vælg Underviser(e)</label>
-                            <input id="teachers" th:field="course.teachers"
+                            <label for="teachers">Underviser(e)</label>
+                            <p id="teachers" th:field="course.teachers"
                                    th:each="teacher : ${teachers}"
-                                   th:value="${teacher.id}"
                                    th:text="${teacher.firstname + ' ' + teacher.lastname + ' '}" readonly="true"/>
                         </div>
                     </div>
