@@ -74,25 +74,25 @@ You are to build this web-app using the Spring Framework. The data produced by t
 
 Course info
 Each course will contain the following informations. This data is provided by the teacher and the students can only view this data.
-Name of the course in Danish
-Name of the course in English
+Name of the course in Danish.
+Name of the course in English.
 Study Programme. One or more of the following options:
-Computer Science 
-Web Development
-Software development
-IT-Security
-Mandatory or Elective
-ECTS
-Course language
-Minimum number of students
-Expected number of students
-Maximum number of students
-Prerequisites
-Learning outcome
-Content
-Learning activities
-Exam form
-Teachers
+Computer Science, 
+Web Development,
+Software development,
+IT-Security.
+Mandatory or Elective.
+ECTS.
+Course language.
+Minimum number of students.
+Expected number of students.
+Maximum number of students.
+Prerequisites.
+Learning outcome.
+Content.
+Learning activities.
+Exam form.
+Teachers.
 
 Here is an example of this info for a specific course:
 Name of the course (Danish):    Full Stack NodeJs
@@ -107,8 +107,8 @@ Minimum # of students:          15
 Expected # of students:         35
 Maximum # of students:          50
 Prerequisites:                  Students must know HTML, CSS, JS, PHP and MySQL.
-Learning outcome:               Students will be able to code a full stack web based application, set-up a NODEJS server in the cloud                                   and decide the best possible use of MongoDB
-Content:                        NodeJS, Flexbox, Grid, CSS, MongoDB, AJAX, Websockets, JSON objects, Setting up a server in Amazon Web                                   Servers and locally. Use of the terminal and FTP. Also, the setup and use of HTTPS.
+Learning outcome:               Students will be able to code a full stack web based application, set-up a NODEJS server in the cloud and decide the best possible use of MongoDB
+Content:                        NodeJS, Flexbox, Grid, CSS, MongoDB, AJAX, Websockets, JSON objects, Setting up a server in Amazon Web Servers and locally. Use of the terminal and FTP. Also, the setup and use of HTTPS.
 Learning activities:            Individual work and exam. Communication takes place via our Ryver channel WD-2018-F-NODEJS
 Exam form:                      Internal oral exam based on hand in product. Graded based on the 7-scale.
 Teachers:                       Santiago Donoso (sand@kea.dk) Constantin Alexandru Gheorghiasa (coag@kea.dk)
