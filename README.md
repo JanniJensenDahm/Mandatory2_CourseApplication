@@ -74,44 +74,44 @@ You are to build this web-app using the Spring Framework. The data produced by t
 
 Course info
 Each course will contain the following informations. This data is provided by the teacher and the students can only view this data.
-Name of the course in Danish.
-Name of the course in English.
-Study Programme. One or more of the following options:
+- Name of the course in Danish.
+- Name of the course in English.
+- Study Programme. One or more of the following options:
 Computer Science, 
 Web Development,
 Software development,
 IT-Security.
-Mandatory or Elective.
-ECTS.
-Course language.
-Minimum number of students.
-Expected number of students.
-Maximum number of students.
-Prerequisites.
-Learning outcome.
-Content.
-Learning activities.
-Exam form.
-Teachers.
+- Mandatory or Elective.
+- ECTS.
+- Course language.
+- Minimum number of students.
+- Expected number of students.
+- Maximum number of students.
+- Prerequisites.
+- Learning outcome.
+- Content.
+- Learning activities.
+- Exam form.
+- Teachers.
 
 Here is an example of this info for a specific course:
-Name of the course (Danish):    Full Stack NodeJs
-Name of the course (English):   Full Stack NodeJs
-Semester:                       2
-Class code:                     WD-2018-F-NODEJS
-Study Programme:                Web Development
-Mandatory or Elective:          Elective
-ECTS:                           10
-Course language:                English
-Minimum # of students:          15
-Expected # of students:         35
-Maximum # of students:          50
-Prerequisites:                  Students must know HTML, CSS, JS, PHP and MySQL.
-Learning outcome:               Students will be able to code a full stack web based application, set-up a NODEJS server in the cloud and decide the best possible use of MongoDB
-Content:                        NodeJS, Flexbox, Grid, CSS, MongoDB, AJAX, Websockets, JSON objects, Setting up a server in Amazon Web Servers and locally. Use of the terminal and FTP. Also, the setup and use of HTTPS.
-Learning activities:            Individual work and exam. Communication takes place via our Ryver channel WD-2018-F-NODEJS
-Exam form:                      Internal oral exam based on hand in product. Graded based on the 7-scale.
-Teachers:                       Santiago Donoso (sand@kea.dk) Constantin Alexandru Gheorghiasa (coag@kea.dk)
+- Name of the course (Danish):    Full Stack NodeJs
+- Name of the course (English):   Full Stack NodeJs
+- Semester:                       2
+- Class code:                     WD-2018-F-NODEJS
+- Study Programme:                Web Development
+- Mandatory or Elective:          Elective
+- ECTS:                           10
+- Course language:                English
+- Minimum # of students:          15
+- Expected # of students:         35
+- Maximum # of students:          50
+- Prerequisites:                  Students must know HTML, CSS, JS, PHP and MySQL.
+- Learning outcome:               Students will be able to code a full stack web based application, set-up a NODEJS server in the cloud and decide the best possible use of MongoDB
+- Content:                        NodeJS, Flexbox, Grid, CSS, MongoDB, AJAX, Websockets, JSON objects, Setting up a server in Amazon Web Servers and locally. Use of the terminal and FTP. Also, the setup and use of HTTPS.
+- Learning activities:            Individual work and exam. Communication takes place via our Ryver channel WD-2018-F-NODEJS
+- Exam form:                      Internal oral exam based on hand in product. Graded based on the 7-scale.
+- Teachers:                       Santiago Donoso (sand@kea.dk) Constantin Alexandru Gheorghiasa (coag@kea.dk)
 
 Must-have requirements:
 - CRUD for course. This includes also a list with the students assigned to this course.
